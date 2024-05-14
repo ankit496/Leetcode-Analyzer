@@ -7,5 +7,5 @@ app.use(cors({
 }))
 app.get('/:id',q.query)
 app.listen(3000,()=>{
-    console.log('App on 3000')
+    console.log('App started on 3000')
 })
