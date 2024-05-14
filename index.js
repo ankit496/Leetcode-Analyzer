@@ -1,7 +1,7 @@
 const express=require('express')
 const cors=require('cors')
 const app=express()
-const fetchQuestions=require('./router/fetchQuestions')
+const fetchQuestions=require('./routes/fetchQuestions')
 const queryRouter= require('./routes/route')
 
 
