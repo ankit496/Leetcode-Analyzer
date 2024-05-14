@@ -1,11 +1,11 @@
 const express=require('express')
 const cors=require('cors')
 const app=express()
-let q=require('./query')
+const fetchQuestions=require('./router/fetchQuestions')
 app.use(cors({
     origin:'*'
 }))
-app.get('/:id',q.query)
+app.use('/question',fetchQuestions)
 app.listen(3000,()=>{
     console.log('App started on 3000')
 })
