@@ -50,7 +50,7 @@ exports.query = (req, res) => {
         res.send(data);
       }else {
         console.log(data.data)
-        res.send(formatData(data.data).fundamental);
+        res.send(formatData(data.data));
       }
     })
     .catch(err=>{

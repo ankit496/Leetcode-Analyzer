@@ -1,11 +1,17 @@
 const express=require('express')
 const cors=require('cors')
-const app=express()
-let q=require('./query')
+const app=express();
+const queryRouter= require('./routes/route')
+
+
 app.use(cors({
     origin:'*'
 }))
-app.get('/:id',q.query)
+app.get('/',(req,res)=>{
+    res.send('Hello World')
+})
+app.use('/api',queryRouter);
+
 app.listen(3000,()=>{
     console.log('App started on 3000')
 })
