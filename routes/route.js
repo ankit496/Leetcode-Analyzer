@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
 
-const topic=require('../queries/topicWiseQuestion');
-const userDetails_query= require('../queries/userDetails')
-const attempted_questions= require('../queries/attemptedQuestions')
 
+const topicWiseQuestion=require('../controllers/topicWiseQuestion')
+const attemptedQuestions=require('../controllers/attemptedQuestions')
+const userDetails=require('../controllers/userDetails')
 
-router.get('/:id',topic.query)
-router.get('/stats/:id',attempted_questions.query)
-router.get('/user/:id',userDetails_query.query)  //not updated yet
+router.get('/:id',topicWiseQuestion)
+router.get('/stats/:id',attemptedQuestions)
+router.get('/user/:id',userDetails)  //not updated yet
 
 module.exports=router;

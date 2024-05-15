@@ -1,4 +1,5 @@
-const fetchAllQuestionswithTagQuery=`query skillStats($username: String!) {
+const topicWiseQuestionQuery=`
+query skillStats($username: String!) {
     matchedUser(username: $username) {
       tagProblemCounts {
         advanced {
@@ -20,4 +21,5 @@ const fetchAllQuestionswithTagQuery=`query skillStats($username: String!) {
     }
   }
 `
-module.exports=fetchAllQuestionswithTagQuery
+module.exports=topicWiseQuestionQuery
+
