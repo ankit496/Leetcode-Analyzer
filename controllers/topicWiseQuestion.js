@@ -1,27 +1,4 @@
-const query=`
-query skillStats($username: String!) {
-    matchedUser(username: $username) {
-      tagProblemCounts {
-        advanced {
-          tagName
-          tagSlug
-          problemsSolved
-        }
-        intermediate {
-          tagName
-          tagSlug
-          problemsSolved
-        }
-        fundamental {
-          tagName
-          tagSlug
-          problemsSolved
-        }
-      }
-    }
-  }
-`
-
+const query=require('../queries/topicWiseQuestionQuery')
 // format data 
 const formatData = (data) => {
     let sendData =  {
@@ -33,7 +10,7 @@ const formatData = (data) => {
 }
 
 //fetching the data
-exports.query = (req, res) => {
+const topicWiseQuestion = (req, res) => {
     let user = req.params.id;
     fetch('https://leetcode.com/graphql', {
         method: 'POST',
@@ -49,7 +26,7 @@ exports.query = (req, res) => {
       if(data.errors){
         res.send(data);
       }else {
-        console.log(data.data)
+        //console.log(data.data)
         res.send(formatData(data.data));
       }
     })
@@ -58,3 +35,4 @@ exports.query = (req, res) => {
         res.send(err);
     });
 }
+module.exports=topicWiseQuestion
